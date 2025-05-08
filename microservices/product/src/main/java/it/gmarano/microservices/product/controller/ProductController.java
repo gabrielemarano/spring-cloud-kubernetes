@@ -2,7 +2,7 @@ package it.gmarano.microservices.product.controller;
 
 import it.gmarano.microservices.model.Product;
 import it.gmarano.microservices.model.User;
-import it.gmarano.microservices.product.feign.UserClient;
+import it.gmarano.microservices.product.client.UserClient;
 import it.gmarano.microservices.product.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

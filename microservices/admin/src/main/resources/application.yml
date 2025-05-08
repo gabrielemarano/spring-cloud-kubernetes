@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: admin
+  output:
+    ansi:
+      enabled: ALWAYS

@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: user
+data:
+  application.yml: |
+    spring:
+      gateway:
+        routes:
+          - id: user
+            uri: lb://user
+            predicates:
+              - Path=/user/**
+            filters:
+              - RewritePath=/user/(?<path>.*), /$\{path}
+          - id: product
+            uri: lb://product
+            predicates:
+              - Path=/product/**
+            filters:
+              - RewritePath=/product/(?<path>.*), /$\{path}
+          - id: openapi
+            uri: http://localhost:8080
+            predicates:
+              - Path=/v3/api-docs/**
+            filters:
+              - RewritePath=/v3/api-docs/(?<path>.*), /$\{path}/v3/api-docs
